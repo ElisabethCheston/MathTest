@@ -1,4 +1,7 @@
+
+
 /*
+
 // Create a varible for all the innerbricks. //
 let cards = document.querySelectorAll('.innerbrick');
 
