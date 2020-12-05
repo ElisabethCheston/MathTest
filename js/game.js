@@ -1,4 +1,45 @@
 
+const gameboard = () => {
+    const rows = 4;
+    const columns = 4;
+
+    for (let i = 0; i < row * columns; i ++) {
+        
+    }
+}
+
+/*
+// Variable //
+var brickArray = ["A", "A", "B", "B", 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+var brickValues = [];
+var brickIds = [];
+var brickFlipped = 0;
+
+// Shuffle method //
+Array.prototype.brickShuffle = function() {
+    var i = this.length, j, temp;
+    while(--i > 0 ) {
+        j = Math.floor(Math.random() * (i + 1));
+        temp = this[j];
+        this[j] = this[i];
+        this[i] = temp;
+    }
+}
+// To start a new game //
+function newGame () {
+    brickFlipped = 0;
+    var output = '';
+    // This line will take the bricks and shuffle them for a new game. //
+    brickArray.brickShuffle();
+    // Make a loop over the bricks. //
+    for (var i = 0; i < brickArray.length; i++) {
+        // The onclick event calls the divs with 'this' and match them with its ID // 
+        output +='<div id="brick_'+i+'" oncklick="gameFlipBrick(this,\'' + brickArray[i] + '\')"></div>';
+    }
+    document.getElementById('game').innerHTML = output;
+}
+// Flip the bricks //
+
 
 /*
 
@@ -143,9 +184,9 @@ givenumber();
 for (i= 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function (e) {
 
-        //variable for turning the buttons
+//variable for turning the buttons
         var turnable = e.target.dataset.turnable;
-        //  the first click
+// first click
         if  (!wait && lastKnownButtonId == undefined && 
             lastKnownButtonNumber == undefined && turnable == 'true') {
                 // Otherwise the 'if' statement wont run
@@ -158,7 +199,7 @@ for (i= 0; i < buttons.length; i++) {
                 lastKnownButtonId = e.target.id;
                 lastKnownButtonNumber = e.target.dataset.number;
             }
-             // the second click
+// second click
              // The id and the Number must not be equal to undefine butt is not ALSO it cant click it self
         else if (!wait && lastKnownButtonId != undefined && 
             lastKnownButtonNumber != undefined && turnable == 'true' 
@@ -166,8 +207,7 @@ for (i= 0; i < buttons.length; i++) {
                 e.target.dataset.turnable = 'false';
                 
                 e.target.textContent = e.target.dataset.number;
-
-                  //match
+//match
                 if (e.target.dataset.number == lastKnownButtonNumber) {
                     e.target.style.backgroundColor = 'green';
                     document.getElementById(lastKnownButtonId)
@@ -182,8 +222,7 @@ for (i= 0; i < buttons.length; i++) {
                         showWinScreen();
                     }
                 }
-
-                //no match
+//no match
                 else {
                     document.getElementById(lastKnownButtonId)
                     .style.backgroundColor = 'red';

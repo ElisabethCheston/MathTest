@@ -7,110 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <title>Math Game</title>
-    <style>
-        div#game {
-            width: 500px;
-            height: 500px;
-            background: #cccccc;
-            border: red 2px solid;
-            margin: 0 auto;
-            padding: 15px;
-            /* display: grid;
-            grid-template-columns: repeat(4, 100px);
-            grid-gap: 14px;
-            justify-content: center; */
-        }
-        div#game > div {
-            width: 100px;
-            height: 100px;
-            background: url(images/kidsmath.jpg) no-repeat;
-            border: red 2px solid;
-            float: left;
-            padding: 0px;
-            cursor: pointer;
-            font-size: 20px;
-            text-align: center;
-            margin: 8px;
-        }
-    </style>
-    <script>
-    // Variable //
-var brickArray = ["A", "A", "B", "B", 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
-var brickValues = [];
-var brickIds = [];
-var brickFlipped = 0;
-
-// Shuffle method //
-Array.prototype.brickShuffle = function() {
-    var i = this.length, j, temp;
-    while(--i > 0 ) {
-        j = Math.floor(Math.random() * (i + 1));
-        temp = this[j];
-        this[j] = this[i];
-        this[i] = temp;
-    }
-}
-// To start a new game //
-function newGame () {
-    brickFlipped = 0;
-    var output = '';
-    // This line will take the bricks and shuffle them for a new game. //
-    brickArray.brickShuffle();
-    // Make a loop over the bricks. //
-    for (var i = 0; i < brickArray.length; i++) {
-        // The onclick event calls the divs with 'this' and match them with its ID // 
-        output +='<div id="brick_'+i+'" oncklick="gameFlipBrick(this,\'' + brickArray[i] + '\')"></div>';
-    }
-    document.getElementById('game').innerHTML = output;
-}
-
-
-function gameFlipBrick(brick, val) {
-    if (brick.innerHTML == "" && brickValues.length < 2) {
-         brick.style.background = '#fff';
-         brick.innerHTML = val;
-         if (brickValues.length == 0) {
-             brickValues.push(val);
-             brickIds.push(brick.id);
-         } else if (brickValues.length == 1) {
-             brickValues.push(val);
-             brickIds.push(brick.id);
-             if (brickValues[0] == brickValues[1]) {
-                 brickFlipped += 2;
-                 brickValues = [];
-                 brickIds = [];
-                 if (brickFlipped == brickArray.length) {
-                     alert ("Well done! ..new game comming now!");
-                     document.getElementById('game').innerHTML = "";
-                     newGame();
-                 }
-             } else {
-                 function turnBack() {
-                     var brick_1. = document.getElementById(brickIds[0]);
-                     var brick_2. = document.getElementById(brickIds[1]);
-                     brick_1.style.background = 'url(images/kidsmath.jpg) no-repeat';
-                     brick_1.innerHTML = "";
-                     brick_2.style.background = 'url(images/kidsmath.jpg) no-repeat';
-                     brick_2.innerHTML = "";
-                     // Clear arrays //
-                     brickValues = [];
-                     brickIds = [];
-                 }
-                 setTimeout(turnBack, 700);
-             }
-         }
-     }
-</script>
 </head>
 
 <body>
 <h1>MATH IS FUN</h1>
 <h4>Can You Get All The Bricks To Match?</h4>
-        <div id="game"></div>
-        
-<script>newGame();</script> 
+
+<div id="gameboard">
+
+    <div class="brick">
+        <div class="backside"><img src="images/kidsmath.jpg"></div>
+        <div class="frontside"><img src="images/mathkids.png"></div>
+    </div>
+    <div class="brick">
+        <div class="backside"><img src="images/kidsmath.jpg"></div>
+        <div class="frontside"><img src="images/mathkids.png"></div>
+    </div>
+    <div class="brick">
+        <div class="backside"><img src="images/kidsmath.jpg"></div>
+        <div class="frontside"><img src="images/mathkids.png"></div>
+    </div>
+    <div class="brick">
+        <div class="backside"><img src="images/kidsmath.jpg"></div>
+        <div class="frontside"><img src="images/mathkids.png"></div>
+    </div>
+
+</div>
     <!-- 
-          
        <div data-turnable="true" data-number="0" id="1"><img src="images/merry.jpg" alt="card back"/></div>
         <button data-turnable="true" data-number="0" id="2"><img src="images/merry.jpg" alt="card back"></button>
         <button data-turnable="true" data-number="0" id="3"><img src="images/merry.jpg" alt="card back"></button>
