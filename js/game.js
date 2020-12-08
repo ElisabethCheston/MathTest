@@ -3,42 +3,27 @@ const board = () => {
     const columns = 4;
 
 // Loop to show bricks. //
-for (let i = 0; i < rows * columns; i ++)
+    for (let i = 0; i < rows * columns; i ++) {
+    }
 };
-
-var image = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8]
+// Variables
+var numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8]
 var lastKnownButtonId = undefined;
 var lastKnownButtonNumber = undefined;
 var wait = false;
 var matches = 0;
+
 //elements
 var buttons = document.querySelectorAll("button");
-// code
+
 //implementing the array numbers ramdomly to the dataset number in the buttons //
 shuffle(numbers);
-givenumber();
-//functions
-function giveNumbers() {
-    for (i = 0; i < buttons.length; i++) {
-        buttons[i].dataset.number = numbers[i];
-    }
-}
-// https://medium.com/@nitinpatel_20236/how-to-shuffle-correctly-shuffle-an-array-in-javascript-15ea3f84bfb //
-function shuffle(array) {
-    var j, x, i;
-for(i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const x = array[i]
-    array[i] = array[j]
-    array[j] = x
-  }
-  return array;
-}
+giveNumbers();
 
 //loop on an eventlistener to give access to everything clicked on.
-for (i= 0; i < buttons.length; i++) {
+for (i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function (e) {
-//variable for turning the buttons
+        //variable for turning the buttons
         var turnable = e.target.dataset.turnable;
 // first click
         if  (!wait && lastKnownButtonId == undefined && 
@@ -93,8 +78,28 @@ for (i= 0; i < buttons.length; i++) {
     
                   }
                 }
+
     });
 }
+//functions
+function giveNumbers() {
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].dataset.number = numbers[i];
+    }
+}
+// https://medium.com/@nitinpatel_20236/how-to-shuffle-correctly-shuffle-an-array-in-javascript-15ea3f84bfb //
+function shuffle(array) {
+    var j, x, i;
+for(i = array.length - 1; i > 0; i--) {
+     j = Math.floor(Math.random() * (i + 1));
+     x = array[i]
+    array[i] = array[j]
+    array[j] = x
+  }
+  return array;
+}
+
+
 
 /*
 function showWinScreen() {
