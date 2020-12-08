@@ -1,22 +1,38 @@
+
 /*
 var image = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8]
 var lastKnownButtonId = undefined;
 var lastKnownButtonNumber = undefined;
 var wait = false;
 var matches = 0;
-
 //elements
 var buttons = document.querySelectorAll("button");
-
 // code
 //implementing the array numbers ramdomly to the dataset number in the buttons //
-shuffle(image);
+shuffle(numbers);
 givenumber();
+//functions
+function giveNumbers() {
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].dataset.number = numbers[i];
+    }
+}
+// https://medium.com/@nitinpatel_20236/how-to-shuffle-correctly-shuffle-an-array-in-javascript-15ea3f84bfb //
+function shuffle(array) {
+    var j, x, i;
+for(i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const x = array[i]
+    array[i] = array[j]
+    array[j] = x
+  }
+  return array;
+}
 
+/*
 //loop on an eventlistener to give access to everything clicked on.
 for (i= 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function (e) {
-
 //variable for turning the buttons
         var turnable = e.target.dataset.turnable;
 // first click
@@ -24,10 +40,8 @@ for (i= 0; i < buttons.length; i++) {
             lastKnownButtonNumber == undefined && turnable == 'true') {
                 // Otherwise the 'if' statement wont run
                 e.target.dataset.turnable = 'false';
-
                 e.target.innerHTML = getgImage(event.target.dataset.number);
                 e.target.style.backgroundColor = 'orange';
-
                 //To match the buttons by the dataset number
                 lastKnownButtonId = e.target.id;
                 lastKnownButtonNumber = e.target.dataset.number;
@@ -45,12 +59,9 @@ for (i= 0; i < buttons.length; i++) {
                     e.target.style.backgroundColor = 'green';
                     document.getElementById(lastKnownButtonId)
                     .style.backgroundColor = 'green';
-
                     lastKnownButtonId = undefined;
                     lastKnownButtonNumber = undefined;
-
                     matches++;
-
                     if (matches == 1) {
                         showWinScreen();
                     }
@@ -61,19 +72,15 @@ for (i= 0; i < buttons.length; i++) {
                     .style.backgroundColor = 'red';
                     e.target.style.backgroundColor = 'red';
                     wait = true;
-
                     setTimeout(() => {
                         e.target.dataset.turnable = 'true';
                         e.target.style.backgroundColor = 'white';
                         e.target.innerHTML = getgImage(0);
-
                         var tempLastClickedButton = document.getElementById
                         (lastKnownButtonId);
-
                         tempLastClickedButton.dataset.turnable = 'true';
                         tempLastClickedButton.style.backgroundColor = 'white';
                         tempLastClickedButton.innerHTML = getgImage(0);
-
                         lastKnownButtonId = undefined;
                         lastKnownButtonNumber = undefined;
                         wait = false;
@@ -81,39 +88,17 @@ for (i= 0; i < buttons.length; i++) {
     
                   }
                 }
-
     });
 }
 
-//functions
-function giveNumbers() {
-    for (i = 0; i < buttons.length; i++) {
-        buttons [i].dataset.number = numbers[i];
-    }
-}
-// https://medium.com/@nitinpatel_20236/how-to-shuffle-correctly-shuffle-an-array-in-javascript-15ea3f84bfb //
-
-function shuffle(array) {
-    var j, x, i;
-for(i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const x = array[i]
-    array[i] = array[j]
-    array[j] = x
-  }
-  return array;
-}
 /*
 function showWinScreen() {
     document.querySelector('.win-container').style.display = 'flex';
-
     document.getElementById("6").style.display = 'none';
     document.getElementById("7").style.display = 'none';
     document.getElementById("10").style.display = 'none';
     document.getElementById("11").style.display = 'none';
-
 }
-
 function getgImage(number) {
     switch(number) {
     case '1':
@@ -136,7 +121,6 @@ function getgImage(number) {
         return '<img src="images/merry.png">';
     }
 }
-
 function reset () {
     lastKnownButtonId = undefined;
     lastKnownButtonNumber = undefined;
@@ -144,13 +128,10 @@ function reset () {
     shuffle(numbers);
     giveNumbers();
     matches = 0;
-
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].innerHTML = getgImage(0);
         buttons[i].style.backgroundColor = 'white';
-
         document.querySelector('.win-container').style.display = 'none';
-
         document.getElementById("6").style.display = 'block';
         document.getElementById("7").style.display = 'block';
         document.getElementById("10").style.display = 'block';
@@ -162,20 +143,17 @@ function reset () {
 const gameboard = () => {
     const rows = 4;
     const columns = 4;
-
     // Loop for the bricks //
     for (let i = 0; i < row * columns; i ++) {
         
     }
 }
-
 /*
 // Variable //
 var brickArray = ["A", "A", "B", "B", 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 var brickValues = [];
 var brickIds = [];
 var brickFlipped = 0;
-
 // Shuffle method //
 Array.prototype.brickShuffle = function() {
     var i = this.length, j, temp;
@@ -200,31 +178,22 @@ function newGame () {
     document.getElementById('game').innerHTML = output;
 }
 // Flip the bricks //
-
-
 /*
-
 // Create a varible for all the innerbricks. //
 let cards = document.querySelectorAll('.innerbrick');
-
 let firstClick = false
 let counter = 0
 let brickPair = [] 
-
 function turn() {
-
 }
 cards.forEach((card) => {
     card.addEventListener('click', turn)
 })
-
 shuffle()
-
 for(let i = 0; i < cards.length; i++) {
     cards[i].addEventListener('click',() => {
         if(!firstClick){time()}
         firstClick = true
-
         if(cards[i].state == 'unclicked') {
             cards[i].style.transform = 'rotateY(180deg)'
             cards[i].state = 'clicked'
@@ -240,7 +209,6 @@ for(let i = 0; i < cards.length; i++) {
         }
     })
 }
-
 function check() {
     if(counter==2) {
         if(cardPair[0].querySelector('img').src == cardPair[1].querySelector('img').src) {
@@ -251,7 +219,6 @@ function check() {
         }
     }
 }
-
 function matched() {
     cardPair[0].state = 'blocked'
     cardPair[1].state = 'blocked'
@@ -271,7 +238,6 @@ function unmatched(x, y) {
     counter = 0
     cardPair = []
 }
-
 // Making a function for timing the game. //
 function time() {
     let secs = 0
@@ -281,26 +247,21 @@ function time() {
     setInterval(() => {
         secs++
         if(secs == 60) { secs = 0; mins++}
-
         secs <10?SS = `0${secs}`: SS = `${secs}`
         mins <10?SS = `0${mins}`: SS = `${mins}`
-
         document.querySelector('#time').innerHTML = `${MM}:${SS}`
     }, 1000);
 }
-
 // Shuffle function //
 function shuffle() {
     let images = document.querySelectorAll('img')
     let srcs = ["test.png", "test.png", "test.png", "test.png", "test.png", "test.png", "test.png", "test.png", "test.png", "test.png", "test.png", "test.png", "test.png", "test.png", "test.png", "test.png",]
-
     for(i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * i);
     const x = srcs[i]
     srcs[i] = srcs[j]
     srcs[j] = x
     }
-
     for (let i = 0; i < images.length; i++) {
         images[i].src = srcs[i];
     }
@@ -313,7 +274,6 @@ function giveNumbers() {
     }
 }
 // https://medium.com/@nitinpatel_20236/how-to-shuffle-correctly-shuffle-an-array-in-javascript-15ea3f84bfb //
-
 function shuffle(array) {
     var j, x, i;
 for(i = array.length - 1; i > 0; i--) {
@@ -325,26 +285,21 @@ for(i = array.length - 1; i > 0; i--) {
   return array;
 }
 }
-
 /*
 var image = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8]
 var lastKnownButtonId = undefined;
 var lastKnownButtonNumber = undefined;
 var wait = false;
 var matches = 0;
-
 //elements
 var buttons = document.querySelectorAll("button");
-
 // code
 //implementing the array numbers ramdomly to the dataset number in the buttons //
 shuffle(image);
 givenumber();
-
 //loop on an eventlistener to give access to everything clicked on.
 for (i= 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function (e) {
-
 //variable for turning the buttons
         var turnable = e.target.dataset.turnable;
 // first click
@@ -352,10 +307,8 @@ for (i= 0; i < buttons.length; i++) {
             lastKnownButtonNumber == undefined && turnable == 'true') {
                 // Otherwise the 'if' statement wont run
                 e.target.dataset.turnable = 'false';
-
                 e.target.innerHTML = getgImage(event.target.dataset.number);
                 e.target.style.backgroundColor = 'orange';
-
                 //To match the buttons by the dataset number
                 lastKnownButtonId = e.target.id;
                 lastKnownButtonNumber = e.target.dataset.number;
@@ -373,12 +326,9 @@ for (i= 0; i < buttons.length; i++) {
                     e.target.style.backgroundColor = 'green';
                     document.getElementById(lastKnownButtonId)
                     .style.backgroundColor = 'green';
-
                     lastKnownButtonId = undefined;
                     lastKnownButtonNumber = undefined;
-
                     matches++;
-
                     if (matches == 1) {
                         showWinScreen();
                     }
@@ -389,19 +339,15 @@ for (i= 0; i < buttons.length; i++) {
                     .style.backgroundColor = 'red';
                     e.target.style.backgroundColor = 'red';
                     wait = true;
-
                     setTimeout(() => {
                         e.target.dataset.turnable = 'true';
                         e.target.style.backgroundColor = 'white';
                         e.target.innerHTML = getgImage(0);
-
                         var tempLastClickedButton = document.getElementById
                         (lastKnownButtonId);
-
                         tempLastClickedButton.dataset.turnable = 'true';
                         tempLastClickedButton.style.backgroundColor = 'white';
                         tempLastClickedButton.innerHTML = getgImage(0);
-
                         lastKnownButtonId = undefined;
                         lastKnownButtonNumber = undefined;
                         wait = false;
@@ -409,10 +355,8 @@ for (i= 0; i < buttons.length; i++) {
     
                   }
                 }
-
     });
 }
-
 //functions
 function giveNumbers() {
     for (i = 0; i < buttons.length; i++) {
@@ -420,7 +364,6 @@ function giveNumbers() {
     }
 }
 // https://medium.com/@nitinpatel_20236/how-to-shuffle-correctly-shuffle-an-array-in-javascript-15ea3f84bfb //
-
 function shuffle(array) {
     var j, x, i;
 for(i = array.length - 1; i > 0; i--) {
@@ -431,17 +374,13 @@ for(i = array.length - 1; i > 0; i--) {
   }
   return array;
 }
-
 function showWinScreen() {
     document.querySelector('.win-container').style.display = 'flex';
-
     document.getElementById("6").style.display = 'none';
     document.getElementById("7").style.display = 'none';
     document.getElementById("10").style.display = 'none';
     document.getElementById("11").style.display = 'none';
-
 }
-
 function getgImage(number) {
     switch(number) {
     case '1':
@@ -464,7 +403,6 @@ function getgImage(number) {
         return '<img src="images/merry.png">';
     }
 }
-
 function reset () {
     lastKnownButtonId = undefined;
     lastKnownButtonNumber = undefined;
@@ -472,13 +410,10 @@ function reset () {
     shuffle(numbers);
     giveNumbers();
     matches = 0;
-
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].innerHTML = getgImage(0);
         buttons[i].style.backgroundColor = 'white';
-
         document.querySelector('.win-container').style.display = 'none';
-
         document.getElementById("6").style.display = 'block';
         document.getElementById("7").style.display = 'block';
         document.getElementById("10").style.display = 'block';
