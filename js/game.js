@@ -5,7 +5,7 @@ const board = () => {
 // Loop to show bricks. //
 for (let i = 0; i < rows * columns; i ++)
 };
-/*
+
 var image = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8]
 var lastKnownButtonId = undefined;
 var lastKnownButtonNumber = undefined;
@@ -35,7 +35,6 @@ for(i = array.length - 1; i > 0; i--) {
   return array;
 }
 
-/*
 //loop on an eventlistener to give access to everything clicked on.
 for (i= 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function (e) {
