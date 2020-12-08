@@ -18,11 +18,7 @@ h1 {
     font-size: 60px;
     color:rgb(253, 253, 71);
     color: black;
-<<<<<<< HEAD
-    -webkit-text-fill-color: brown; /* Will override color (regardless of order) */
-=======
     -webkit-text-fill-color: darkgray; /* Will override color (regardless of order) */
->>>>>>> fd79b8bcfbb2059e79796ac10f186c7de8fcdc36
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: white;
 }
@@ -32,11 +28,7 @@ h4 {
     font-size: 28px;
     -webkit-text-fill-color: green; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 2px;
-<<<<<<< HEAD
-    -webkit-text-stroke-color: brown;
-=======
     -webkit-text-stroke-color: white;
->>>>>>> fd79b8bcfbb2059e79796ac10f186c7de8fcdc36
 }
 #board {
     height: 500px;
@@ -61,14 +53,14 @@ h4 {
     transition: transform 300ms ease-in-out;
     transform: translateZ(-60px);
 }
-<<<<<<< HEAD
+
 .brickbutton:hover {
     transform: rotateX(-180deg);
-=======
+}
 /* background image from https://stackoverflow.com/questions/16514360/how-to-make-a-3d-button-using-css */
 button {
     width: 110px;
-    height: 110px;
+    height: 90px;
     border-radius: 50%;
     font-size: 50px;
     font-weight: Bold;
@@ -89,55 +81,6 @@ button:hover {
     box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 5px 0 0      #333797,0 5px 8px 1px rgba(0, 0, 0, 0.2),0 5px 6px 3px rgba(0, 0, 0, 0.2);
 }
 /*
-img {
-    width: 100%;
-    height: 100%;
->>>>>>> fd79b8bcfbb2059e79796ac10f186c7de8fcdc36
-}
-.brick {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    -moz-display: flex;
-    -webkit-display: flex;
-    -o-display: flex;
-    -ms-display: flex;
-}
-/* background image from https://stackoverflow.com/questions/16514360/how-to-make-a-3d-button-using-css */
-button {
-    width: 100px;
-    height: 85px;
-    border-radius: 50%;
-    font-size: 55px;
-    font-weight: bold;
-    text: lightgreen;
-    transition-duration: 0.4s;
-    color: yellow;
-    text-align: center;
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-    text-decoration: none !important;
-    -webkit-transition: all .5s linear;
-    background-color: #474EDD;
-    background-image: -webkit-linear-gradient(283deg, rgba(255, 255, 255, 0.1) 50%, transparent 55%),-webkit-linear-gradient(top, rgba(255, 255, 255, 0.15), transparent);
-    border: 4px lightblue solid;
-    box-shadow: 0 10px 18px 0 rgba(0,0,0,0.3), 0 10px 20px 0 rgba(0,0,0,0.3);
-}
-button:hover {
-    top: -2px;
-    box-shadow: 0 0 0 1px #163772 inset,0 0 0 2px rgba(255, 255, 255, 0.15) inset,0 10px 0 0      #333797,0 5px 8px 1px rgba(0, 0, 0, 0.15),0 5px 6px 3px rgba(0, 0, 0, 0.15);
-}
-
-.frontbutton
- 
-/*
-img {
-    height: 100px;
-    width: 100px;
-}
 .cardfront {
     width: 100%;
     height: 100%;
